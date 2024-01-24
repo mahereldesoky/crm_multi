@@ -59,7 +59,7 @@ class SubDomianController extends Controller
         ]);
         
         $user->tenants()->attach($tenant);
-        $tenant->domains()->create(['domain' => $validatedData['subdomain'] . '.localhost']);
+        $tenant->domains()->create(['domain' => $validatedData['subdomain'] . '.217.196.50.196']);
 
         $tenant->run(function (){
             $user = User::where('id',1)->first();
@@ -121,7 +121,7 @@ class SubDomianController extends Controller
             $tenant = Tenant::where('id',$userData->tenant_id)->first();
             $redirect_url = 'http://'.$tenant->subdomain.'.localhost:5173/';
             $token = tenancy()->impersonate($tenant,$user->global_id,$redirect_url);
-            $tenant_url = "http://{$tenant->subdomain}.localhost:8000";
+            $tenant_url = "http://{$tenant->subdomain}.217.196.50.196";
             Auth::logout();
             return redirect("{$tenant_url}/impersonate/{$token->token}");
         }
