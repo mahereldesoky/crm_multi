@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Models;
+
+use App\Models\CentralUser;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class UserVerify extends Model
+{
+    use HasFactory;
+    
+    protected $table = "users_verify";
+  
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    protected $fillable = [
+        'user_id',
+        'token',
+    ];
+  
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function user()
+    {
+        return $this->belongsTo(CentralUser::class);
+    }
+}
