@@ -19,6 +19,7 @@ return [
         '127.0.0.1',
         'localhost',
         '217.196.50.196',
+        'crm.crowd.com.eg'
     ],
 
     /**
