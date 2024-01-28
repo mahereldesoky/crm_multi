@@ -11,7 +11,6 @@
 @endif
 
 
-<h1>ananannan hamamda</h1>
 
 <form action="{{ url('/subdomain') }}" method="post">
 @csrf
