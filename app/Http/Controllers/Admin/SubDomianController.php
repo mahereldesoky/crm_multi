@@ -121,7 +121,7 @@ class SubDomianController extends Controller
             $tenant = Tenant::where('id',$userData->tenant_id)->first();
             $redirect_url = 'http://'.$tenant->subdomain.'.localhost:5173/';
             $token = tenancy()->impersonate($tenant,$user->global_id,$redirect_url);
-            $tenant_url = "http://{$tenant->subdomain}";
+            $tenant_url = "http://{$tenant->subdomain}.srv463831.hstgr.cloud";
             Auth::logout();
             return redirect("{$tenant_url}/impersonate/{$token->token}");
         }
