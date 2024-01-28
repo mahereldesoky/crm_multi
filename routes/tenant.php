@@ -17,8 +17,6 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\Admin\SubDomianController;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
-use Stancl\Tenancy\Middleware\InitializeTenancyByDomainOrSubdomain;
-use Stancl\Tenancy\Middleware\InitializeTenancyBySubdomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 
 /*
@@ -34,12 +32,12 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 */
 Route::middleware([
     'web','api',
-    InitializeTenancyBySubdomain::class,
+    InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
     
 Route::group(['prefix' => config('sanctum.prefix', 'sanctum')], static function () {
-    Route::get('/csrf-cookie', [CsrfCookieController::class, 'show'])->middleware(['api',InitializeTenancyBySubdomain::class])->name('sanctum.csrf-cookie');
+    Route::get('/csrf-cookie', [CsrfCookieController::class, 'show'])->middleware(['api',InitializeTenancyByDomain::class])->name('sanctum.csrf-cookie');
 
 });
 
