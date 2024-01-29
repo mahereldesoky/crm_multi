@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace Stancl\Tenancy\Features;
 
 use Carbon\Carbon;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
-use Stancl\Tenancy\Contracts\Feature;
-use Stancl\Tenancy\Contracts\Tenant;
-use Stancl\Tenancy\Database\Models\ImpersonationToken;
-use Stancl\Tenancy\Tenancy;
 use App\Models\User;
+use Stancl\Tenancy\Tenancy;
+use App\Http\Resources\UserResource;
+use Illuminate\Support\Facades\Auth;
+use Stancl\Tenancy\Contracts\Tenant;
+use Illuminate\Http\RedirectResponse;
+use Stancl\Tenancy\Contracts\Feature;
+use Stancl\Tenancy\Database\Models\ImpersonationToken;
 
 class UserImpersonation implements Feature
 {
@@ -56,8 +57,8 @@ class UserImpersonation implements Feature
         $global = $user->global_id;
         
         if($token->user_id == $global) {
-       
-        Auth::guard($token->auth_guard)->login($user);
+       $userlogin = new UserResource($user);
+        // Auth::guard($token->auth_guard)->login($user);
 
         $token->delete();
 
