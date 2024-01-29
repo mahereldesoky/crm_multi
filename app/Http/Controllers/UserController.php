@@ -75,11 +75,10 @@ class UserController extends Controller
 
     public function user(Request $request )
     {
-        $user = new UserResource($request->auth()->user());
+        $user = $request->user();
         $user->roles; 
         $user->Permissions;
         return response()->json($user);
-        
     }
 
 
