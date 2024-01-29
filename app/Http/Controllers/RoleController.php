@@ -26,8 +26,8 @@ class RoleController extends Controller
 
 
     public function index() : JsonResponse {
-        $user = User::find(Auth::user()->id);
-        if($user->can('view roles','web')){
+        // $user = User::find(Auth::user()->id);
+        // if($user->can('view roles','web')){
         $roles = Role::all();
         $permissions = Permission::all();
         return response()->json([
@@ -36,13 +36,13 @@ class RoleController extends Controller
             'status' => 200
         ]);
         }
-        else {
-        return response()->json([
-            'message' => 'You Cant View Roles',
-            'status' => 402
-        ]);
-        }
-    }
+        // else {
+        // return response()->json([
+        //     'message' => 'You Cant View Roles',
+        //     'status' => 402
+        // ]);
+        // }
+    // }
 
     public function store(Request $request) : JsonResponse {
         $user = User::find(Auth::user()->id);
