@@ -54,7 +54,7 @@ Route::middleware(['api'])->prefix('api')->group(function () {
 
     Route::post('register',[UserController::class,'register']);
 
-    Route::middleware('auth:sanctum')->group(function () {
+    // Route::middleware('auth:sanctum')->group(function () {
 
     // Route::apiResource('/calender', 'CalenderController');
     Route::get('/calender', [CalenderController::class, 'index']);
@@ -159,5 +159,5 @@ Route::middleware(['api'])->prefix('api')->group(function () {
     });
     
     
-});
+// });
 
