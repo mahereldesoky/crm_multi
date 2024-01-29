@@ -36,10 +36,10 @@ Route::middleware([
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
     
-Route::group(['prefix' => config('sanctum.prefix', 'sanctum')], static function () {
-    Route::get('/csrf-cookie', [CsrfCookieController::class, 'show'])->middleware(['api',InitializeTenancyByDomain::class])->name('sanctum.csrf-cookie');
+// Route::group(['prefix' => config('sanctum.prefix', 'sanctum')], static function () {
+//     Route::get('/csrf-cookie', [CsrfCookieController::class, 'show'])->middleware(['api',InitializeTenancyByDomain::class])->name('sanctum.csrf-cookie');
 
-});
+// });
 
 
 Route::get('/impersonate/{token}',[UserController::class,'test']);
