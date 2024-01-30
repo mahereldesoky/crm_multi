@@ -46,6 +46,7 @@ class UserImpersonation implements Feature
         if (((string) $token->tenant_id) !== ((string) tenant()->getTenantKey())) {
             abort(403);
         }
+        
 
         $ttl = $ttl ?? static::$ttl;
 
