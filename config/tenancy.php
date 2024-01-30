@@ -18,7 +18,7 @@ return [
     'central_domains' => [
         '127.0.0.1',
         'localhost',
-        '185.166.39.86',
+        '185.166.39.86', 
         'crowdcrm.com'
         // 'srv463831.hstgr.cloud',
     ],
